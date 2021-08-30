@@ -30,4 +30,9 @@ export class ClientesService
     return this.http.get<Cliente[]>(`${this.urlEndPoint}`, {headers: this.agregarAuthorizationHeader()});
   }
 
+  getClientesPaginable(page: number): Observable<any>
+  {
+    return this.http.get<any>(`${this.urlEndPoint}/page/${page}`, {headers: this.agregarAuthorizationHeader()});
+  }
+
 }

@@ -17,11 +17,14 @@ export class AutenticacionService
   {
     if(this._usuario )
     if(this._usuario.username.length > 0)
+    {
+      // console.log("aquí andamos antes");  
       return this._usuario;
+    } 
     else if(this._usuario == undefined && sessionStorage.getItem('usuario'))
     {
       this._usuario = JSON.parse(JSON.stringify(sessionStorage.getItem('usuario'))) as Usuario;
-      console.log("aquí andamos " + this._usuario);
+      // console.log("aquí andamos " + this._usuario);
       return this._usuario;
     }
     return new Usuario();
@@ -57,7 +60,7 @@ export class AutenticacionService
   {
     if(accessToken && accessToken.length > 0)
     {
-      console.log("guatefac \n"+atob(accessToken.split(".")[1]))
+      // console.log("guatefac \n"+atob(accessToken.split(".")[1]))
       return JSON.parse(atob(accessToken.split(".")[1]));
     }
     return null;
