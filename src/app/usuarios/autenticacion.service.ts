@@ -15,11 +15,13 @@ export class AutenticacionService
 
   public get usuario(): Usuario
   {
-    if(this._usuario != null)
+    if(this._usuario )
+    if(this._usuario.username.length > 0)
       return this._usuario;
     else if(this._usuario == undefined && sessionStorage.getItem('usuario'))
     {
-      // this._usuario = JSON.parse(sessionStorage.getItem('usuario')) as Usuario;
+      this._usuario = JSON.parse(JSON.stringify(sessionStorage.getItem('usuario'))) as Usuario;
+      console.log("aquí andamos " + this._usuario);
       return this._usuario;
     }
     return new Usuario();
@@ -27,7 +29,7 @@ export class AutenticacionService
 
   public get token(): string
   {
-    if(this._token != null)
+    if(this._token && this._token.length > 0)
       return this._token;
     else if(this._token == null && sessionStorage.getItem('token'))
     {
@@ -37,7 +39,7 @@ export class AutenticacionService
     return '';
   }
 
-  login(usuario: Usuario): Observable<any>
+  login(usuario: Usuario): Observable<any> //string
   {
     const urlEndpoint = 'http://localhost:8080/oauth/token'; //url de donde optenemos el token
     const credenciales = btoa('angularapp' + ':' + '12345');//credenciales de la aplicación angular
@@ -53,8 +55,9 @@ export class AutenticacionService
   }
   obtenerDatosToken(accessToken: string): any
   {
-    if(accessToken != null)
+    if(accessToken && accessToken.length > 0)
     {
+      console.log("guatefac \n"+atob(accessToken.split(".")[1]))
       return JSON.parse(atob(accessToken.split(".")[1]));
     }
     return null;
