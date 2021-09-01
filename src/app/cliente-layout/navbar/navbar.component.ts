@@ -10,7 +10,7 @@ import { AutenticacionService } from 'src/app/usuarios/autenticacion.service';
 export class NavbarComponent implements OnInit {
 
   constructor(
-    private autenticacionService: AutenticacionService
+    public autenticacionService: AutenticacionService
 
   ) { }
 

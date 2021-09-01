@@ -1,19 +1,29 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button  >
-    <mat-icon>task_alt</mat-icon>
-  </button>
-  <span routerLink="/login">ZZTeam</span>
-  <span class="example-spacer"></span>
-  
-  <button mat-icon-button (click)="logOut()" style="margin-left: 80%;">
-    Cerrar sesion
-    <mat-icon>logout</mat-icon>
-  </button>
-</mat-toolbar>
+  <mat-toolbar-row>
+    <div *ngIf="!autenticacionService.isAuthenticated">
+      <span mat-button routerLink="/login">BIENVENIDO</span>
+      <button mat-icon-button>
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>share</mat-icon>
+      </button>
+    </div>
+    <div *ngIf="autenticacionService.isAuthenticated">
+      <button mat-icon-button>
+        <mat-icon>task_alt</mat-icon>
+      </button>
+    
+      <span routerLink="/login">ZZTeam</span>
+    
+      <span class="example-spacer"></span>
+    
+      <button mat-icon-button (click)="logOut()" style="margin-left: 80%">
+        Cerrar sesion
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
 
-<div class="container">
-  <div class="row p-3">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+  </mat-toolbar-row>
+</mat-toolbar>
 

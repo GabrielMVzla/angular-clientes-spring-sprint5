@@ -11,17 +11,13 @@ import { NavbarComponent } from './cliente-layout/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
-import { Navbar1Component } from './cliente-layout/navbar1/navbar1.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    PageNoFoundComponent,
-    Navbar1Component,
-    
+    PageNoFoundComponent,    
   ],
   imports: [
     BrowserModule,
