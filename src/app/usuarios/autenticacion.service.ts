@@ -13,22 +13,21 @@ export class AutenticacionService
   private _usuario: Usuario;
   private _token: string;
 
-  constructor(private http: HttpClient,private router: Router){}
+  constructor(private http: HttpClient,private router: Router){this._usuario = new Usuario();}
 
   public get usuario(): Usuario
   {
-    if(this._usuario )
-    if(this._usuario.username.length > 0)
+    if(sessionStorage.getItem('usuario'))
     {
-      // console.log("aquí andamos antes");  
-      return this._usuario;
-    } 
-    else if(this._usuario == undefined && sessionStorage.getItem('usuario'))
-    {
-      this._usuario = JSON.parse(JSON.stringify(sessionStorage.getItem('usuario'))) as Usuario;
-      // console.log("aquí andamos " + this._usuario);
+      this._usuario = JSON.parse(JSON.parse(JSON.stringify(sessionStorage.getItem('usuario')))) as Usuario;
       return this._usuario;
     }
+  
+    // else    if(this._usuario.username.length > 0)
+    // {
+    //   // console.log("aquí andamos antes");  
+    //   return this._usuario;
+    // } 
     return new Usuario();
   }
 
@@ -79,6 +78,8 @@ export class AutenticacionService
     this._usuario.username = payload.user_name;
     this._usuario.roles = payload.authorities;
 
+    console.log("seg guarda en usuario");
+
     sessionStorage.setItem('usuario', JSON.stringify(this._usuario));// de JavaScript, parse convierte String a obj JSON y el stringify hace lo contrario
   }
   guardarToken(accessToken: string): void
@@ -99,7 +100,6 @@ export class AutenticacionService
     return false;
   }
 
-  
   hasRole(role: string): boolean
   {
     if(this.usuario.roles.includes(role))
@@ -118,7 +118,7 @@ export class AutenticacionService
     sessionStorage.removeItem('usuario');
     sessionStorage.removeItem('token');
     // sessionStorage.clear();
-this.router.navigate(["login"]);
+    this.router.navigate(["login"]);
   }
 
 }

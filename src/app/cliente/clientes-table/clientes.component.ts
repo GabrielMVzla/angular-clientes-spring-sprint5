@@ -22,14 +22,17 @@ export class ClientesComponent implements OnInit {
   constructor(
     private clientesService: ClientesService,
     private dialog: MatDialog,
-    private autenticacionService: AutenticacionService,
+    public autenticacionService: AutenticacionService,
     private activatedRoute: ActivatedRoute
     ) {}
 
 
   ngOnInit(): void {
-    this.allClientes();
-    this.showAction();
+    // this.allClientes();
+    this.clientesPaginables();
+   
+  }
+  clientesPaginables(){
     this.activatedRoute.paramMap.subscribe( params => {
       let page:number = 0;
      
@@ -43,7 +46,6 @@ export class ClientesComponent implements OnInit {
         response => {
           this.clientes = response.content as Cliente[];
           this.paginador = response;
-          console.log(this.paginador);
           
         }
       )
@@ -56,7 +58,7 @@ export class ClientesComponent implements OnInit {
     dialogRef.componentInstance.dec = dec;
     dialogRef.componentInstance.id = id;
     dialogRef.afterClosed().subscribe( response => {
-      this.allClientes();
+      this.clientesPaginables();
     } )
   }
 
@@ -71,7 +73,7 @@ export class ClientesComponent implements OnInit {
   deleteCliente(id: number){
     this.clientesService.deleteCliente(id).subscribe(response =>{
       console.log(response);
-      this.allClientes();
+      this.clientesPaginables();
     })
   }
 
