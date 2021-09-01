@@ -4,7 +4,7 @@ import { ClientesComponent } from './clientes-table/clientes.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'clientes/page/:page',
     component: ClientesComponent
   }
 ];

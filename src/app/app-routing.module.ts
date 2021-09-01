@@ -19,7 +19,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'clientes', 
+    path: '', 
     canActivate: [AdminGuard],
     component: NavbarComponent,
     children:[
