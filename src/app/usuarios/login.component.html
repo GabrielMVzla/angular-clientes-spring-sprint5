@@ -1,28 +1,27 @@
-<div class="">
+<app-navbar1></app-navbar1>
 
-    <div class="card border-primary text-center col-sm-5">
-      <div class="card-header">
-        {{titulo}}
-      </div>
-      <div class="card-body ">
-  
-        <form class="" method="post">
-  
-          <div class="form-gorup col-sm-6 justify-content-center mb-3">
-            <input [(ngModel)]="usuario.username" type="text" class = "form-control"  name="username" id="username" placeholder="Username" autofocus required>
-          </div>
-  
-          <div class="form-gorup col-sm-6 mb-3">
-            <input [(ngModel)]="usuario.password" type="password" class = "form-control"  name="password" id="password" placeholder="Password" required>
-          </div>
-  
-          <div class="form-gorup col-sm-6">
-            <input (click) = "login()" type="submit" class = "btn btn-lg btn-primary btn-block:inline"  value="login" >
-          </div>
-  
-        </form>
-  
-      </div>
-    </div>
-  
-  </div>
+<div class="login" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title > <h1 style="color: black;">Inicio de sesion</h1> </mat-card-title>
+    </mat-card-header>
+    <form class="example-form" method="post">
+      <mat-dialog-content>
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="usuario.username" type="text" name="username" id="username"
+            placeholder="Username" autofocus required>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="usuario.password" type="password" name="password" id="password"
+            placeholder="Password" required>
+        </mat-form-field>
+      </mat-dialog-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" class="btn-block" (click)="login()" type="submit"
+          value="login">LogIn</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+
+</div>

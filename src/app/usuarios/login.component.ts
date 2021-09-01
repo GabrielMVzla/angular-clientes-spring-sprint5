@@ -6,7 +6,8 @@ import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuarios',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['login.component.css']
 })
 export class LoginComponent implements OnInit {
 
