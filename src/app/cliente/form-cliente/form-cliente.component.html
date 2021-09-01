@@ -1,0 +1,55 @@
+<form [formGroup]="form"  (ngSubmit)="saveCliente($event)">
+    <mat-card>
+        <mat-card-header>
+            <div class="row">
+                <mat-card-title>CLIENTE</mat-card-title>
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-4" *ngIf="dec === 1">
+                    <mat-form-field>
+                        <mat-label>ID</mat-label>
+                        <input matInput disabled placeholder="#ID" matInput type="number" >
+                    </mat-form-field>
+                </div>
+                <div class="col-4" *ngIf="dec === 2">
+                    <mat-form-field>
+                        <input placeholder="#ID" formControlName="idCliente" matInput type="number">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field>
+                        <input placeholder="Nombre" formControlName="nombres" matInput type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field>
+                        <input placeholder="Apellidos" formControlName="apellidos" matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <mat-form-field>
+                        <input placeholder="Direccion" formControlName="direccion" matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="row">
+                <div class="col-5">
+                    <button class="actionButton" mat-dialog-close mat-stroked-button color="primary"  type="submit">
+                        Agregar
+                    </button>
+                </div>
+                <div class="col-5">
+                    <button class="actionButton" mat-dialog-close mat-stroked-button color="primary">Cancelar</button>
+                </div>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</form>

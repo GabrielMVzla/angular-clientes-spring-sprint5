@@ -14,7 +14,6 @@ export class ClientesComponent implements OnInit {
 
   constructor(private clientesService: ClientesService, private activatedRoute: ActivatedRoute) 
   {
-
     // this.clientesService.getClientes().subscribe(r => this.clientes = r);
   }
 

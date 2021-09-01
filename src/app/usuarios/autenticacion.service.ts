@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Route } from '@angular/compiler/src/core';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Usuario } from './usuario';
 
@@ -11,7 +13,7 @@ export class AutenticacionService
   private _usuario: Usuario;
   private _token: string;
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient,private router: Router){}
 
   public get usuario(): Usuario
   {
@@ -93,6 +95,7 @@ export class AutenticacionService
     {
       return true;
     }
+
     return false;
   }
 
@@ -115,6 +118,7 @@ export class AutenticacionService
     sessionStorage.removeItem('usuario');
     sessionStorage.removeItem('token');
     // sessionStorage.clear();
+this.router.navigate(["login"]);
   }
 
 }
