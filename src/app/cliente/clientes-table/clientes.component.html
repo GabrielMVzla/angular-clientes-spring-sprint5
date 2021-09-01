@@ -15,7 +15,7 @@
           <th scope="col">First</th>
           <th scope="col">Last</th>
           <th scope="col">Handle</th>
-          <th scope="col">Accion</th>
+          <th scope="col" *ngIf="showAction()">Accion</th>
         </tr>
       </thead>
       <tbody>
@@ -45,4 +45,6 @@
     </table>
   </div>
 </div>
-
+<div class="row">
+  <app-paginacion *ngIf="paginador" [paginador] = "paginador"></app-paginacion>
+</div>

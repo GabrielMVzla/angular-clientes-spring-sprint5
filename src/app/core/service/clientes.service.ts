@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Cliente } from '../../cliente/clientes-table/cliente';
 import { AutenticacionService } from '../../usuarios/autenticacion.service';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+
 
 
 @Injectable({
@@ -11,6 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ClientesService 
 {
+  private urlEndPoint: string = 'http://localhost:8080/api/clientes';
   private httpHeaders = new HttpHeaders ({'Content-Type': 'application/json'});
 
   constructor(
@@ -50,6 +53,10 @@ export class ClientesService
     return this.http.put(`${environment.urlEndPoint}/cliente/${id}`, cliente, 
       {headers: this.agregarAuthorizationHeader()})
 
+  }
+  getClientesPaginable(page: number): Observable<any>
+  {
+    return this.http.get<any>(`${this.urlEndPoint}/page/${page}`, {headers: this.agregarAuthorizationHeader()});
   }
 
 }
