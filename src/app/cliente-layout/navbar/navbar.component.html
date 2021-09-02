@@ -3,14 +3,24 @@
     <mat-toolbar-row class="d-flex justify-content-between container">
 
       <div *ngIf="!autenticacionService.isAuthenticated()">
-        <span mat-button routerLink="/login">BIENVENIDO</span>
+        <span  role="button" mat-button class="material-icons-outlined mt-2" routerLink="/login">BIENVENIDO</span>
         <button mat-icon-button>
           <mat-icon>favorite</mat-icon>
         </button>
-        <button mat-icon-button>
-          <mat-icon>share</mat-icon>
-        </button>
+   
       </div>
+
+      <div *ngIf="!autenticacionService.isAuthenticated()">
+
+        <span type="button" mat-button class="material-icons-outlined mt-2" routerLink="/login">
+          login
+        </span>
+        <button mat-icon-button >
+          <mat-icon routerLink="/login">login</mat-icon>
+        </button>
+   
+      </div>
+
 
       <div *ngIf="autenticacionService.isAuthenticated()">
         <button mat-icon-button>

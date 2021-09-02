@@ -1,0 +1,7 @@
+.footer {
+  /* margin-top: 50px; */
+  position: absolute; /*absolute*/
+  bottom: 0px; /*para dejar al final*/
+  height: 60px;
+  width: 100%;
+}

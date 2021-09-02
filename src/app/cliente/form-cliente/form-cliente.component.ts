@@ -20,7 +20,6 @@ export class FormClienteComponent implements OnInit {
     private clientesService: ClientesService
   ) {
     this.buildForm();
-
   }
 
   ngOnInit(): void {
@@ -29,21 +28,17 @@ export class FormClienteComponent implements OnInit {
         this.form.patchValue(response)
       })
     }
-    
   }
-
 
   saveCliente(e: Event) {
     e.preventDefault();
     if (this.dec === 1) {
       this.clientesService.postClientes(this.form.value).subscribe(response => {
-        console.log(response);
 
       })
     }
     if (this.dec === 2) {
       this.clientesService.putCliente(this.id, this.form.value).subscribe(response => {
-        console.log(response);
       })
     }
   }
@@ -56,5 +51,4 @@ export class FormClienteComponent implements OnInit {
       direccion: ['', [Validators.required]]
     })
   }
-
 }

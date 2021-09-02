@@ -13,6 +13,7 @@ import { NavbarComponent } from './cliente-layout/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
     HeaderComponent,
     HomeComponent,
     NavbarComponent,
-    PageNoFoundComponent
+    PageNoFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
