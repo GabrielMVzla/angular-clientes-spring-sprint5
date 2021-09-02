@@ -12,6 +12,7 @@ const routes: Routes = [
   //   component: LoginComponent
   // },
   {path: '', component: HomeComponent }, //home -> página principal, para hacer match completo con la url: full
+  {path: 'home', component: HomeComponent },
   {path: 'clientes/page/:page', component: ClientesComponent},
   {
     path: 'login', 

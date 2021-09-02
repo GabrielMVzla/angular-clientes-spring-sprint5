@@ -8,7 +8,6 @@ import { FormClienteComponent } from './form-cliente/form-cliente.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PaginacionComponent } from './paginacion/paginacion.component';
 
-
 @NgModule({
   declarations: [
     ClientesComponent,

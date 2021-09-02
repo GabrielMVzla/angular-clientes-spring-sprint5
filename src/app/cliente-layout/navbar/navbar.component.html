@@ -7,7 +7,10 @@
         <button mat-icon-button>
           <mat-icon>favorite</mat-icon>
         </button>
-   
+        
+        <button mat-icon-button routerLink="home">
+          Home
+        </button>
       </div>
 
       <div *ngIf="!autenticacionService.isAuthenticated()">
@@ -27,6 +30,11 @@
           <mat-icon>task_alt</mat-icon>
         </button>
         <span routerLink="/login">ZZTeam</span>
+        
+        <button mat-icon-button routerLink="home">
+          Home
+        </button>
+
       </div>
 
       <div *ngIf="autenticacionService.isAuthenticated()">
@@ -34,7 +42,11 @@
           <mat-icon>logout</mat-icon>
           Cerrar sesion
         </button>
+
+  
       </div>
+
+
     </mat-toolbar-row>
 
 </mat-toolbar>
