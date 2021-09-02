@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './cliente-layout/navbar/navbar.component';
 import { LoginComponent } from './usuarios/login.component';
-import {AdminGuard} from './guard-log/admin.guard'
 import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
 import { ClientesComponent } from './cliente/clientes-table/clientes.component';
 
@@ -20,7 +19,6 @@ const routes: Routes = [
   },
   {
     path: '', 
-    canActivate: [AdminGuard],
     component: NavbarComponent,
     children:[
       {
