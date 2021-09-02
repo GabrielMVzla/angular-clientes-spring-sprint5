@@ -27,7 +27,7 @@ export class ClientesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.clientesPaginables();
+    this.clientesPaginables();    
    
   }
   clientesPaginables(){
