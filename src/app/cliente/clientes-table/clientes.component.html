@@ -1,6 +1,15 @@
-<div class="row my-3" >
-  <span class="col-2" style="margin-top: 1%"> <h2>Clientes</h2></span>
-  <button mat-mini-fab color="primary" (click)="openDialog(1, 0)" class="mt-2" *ngIf="autenticacionService.hasRole('ROLE_ADMIN')">
+<div class="row my-3">
+  <span class="col-2" style="margin-top: 1%">
+      <h2 *ngIf="autenticacionService.hasRole('ROLE_ADMIN')">Agregar Cliente</h2>
+      <h2 *ngIf="!autenticacionService.hasRole('ROLE_ADMIN')">Clientes</h2>
+  </span>
+  <button
+    mat-mini-fab
+    color="primary"
+    (click)="openDialog(1, 0)"
+    class="mt-2"
+    *ngIf="autenticacionService.hasRole('ROLE_ADMIN')"
+  >
     <mat-icon>plus_one</mat-icon>
   </button>
 </div>
@@ -14,15 +23,19 @@
           <th scope="col">First</th>
           <th scope="col">Last</th>
           <th scope="col">Dirección</th>
-          <th scope="col" *ngIf="autenticacionService.hasRole('ROLE_ADMIN')">Editar</th>
-          <th scope="col" *ngIf="autenticacionService.hasRole('ROLE_ADMIN')">Eliminar</th>
+          <th scope="col" *ngIf="autenticacionService.hasRole('ROLE_ADMIN')">
+            Editar
+          </th>
+          <th scope="col" *ngIf="autenticacionService.hasRole('ROLE_ADMIN')">
+            Eliminar
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let cliente of clientes">
           <td>{{ cliente.idCliente }}</td>
           <td>{{ cliente.nombres }}</td>
-          <td>{{ cliente.apellidos }} </td>
+          <td>{{ cliente.apellidos }}</td>
           <td>{{ cliente.direccion }}</td>
           <td *ngIf="autenticacionService.hasRole('ROLE_ADMIN')">
             <button
@@ -51,4 +64,3 @@
 <div class="row">
   <app-paginacion *ngIf="paginador" [paginador]="paginador"></app-paginacion>
 </div>
-
