@@ -1,52 +1,56 @@
 <mat-toolbar color="primary">
+  <mat-toolbar-row class="d-flex justify-content-between container">
+    <div *ngIf="!autenticacionService.isAuthenticated()">
+      <span
+        role="button"
+        mat-button
+        class="material-icons-outlined mt-2"
+        routerLink="/login"
+        >BIENVENIDO</span
+      >
+      <button mat-icon-button>
+        <mat-icon>favorite</mat-icon>
+      </button>
 
-    <mat-toolbar-row class="d-flex justify-content-between container">
+      <button mat-icon-button routerLink="home">Home</button>
+    </div>
 
-      <div *ngIf="!autenticacionService.isAuthenticated()">
-        <span  role="button" mat-button class="material-icons-outlined mt-2" routerLink="/login">BIENVENIDO</span>
-        <button mat-icon-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        
-        <button mat-icon-button routerLink="home">
-          Home
-        </button>
+    <div *ngIf="!autenticacionService.isAuthenticated()">
+      <span
+        type="button"
+        mat-button
+        class="material-icons-outlined mt-2"
+        routerLink="/login"
+      >
+        login
+      </span>
+      <button mat-icon-button>
+        <mat-icon routerLink="/login">login</mat-icon>
+      </button>
+    </div>
+
+    <div *ngIf="autenticacionService.isAuthenticated()" class="row">
+      <button mat-icon-button class="col">
+        <mat-icon>task_alt</mat-icon>
+      </button>
+      <span class="col">ZZTeam</span>
+
+      <div class="col">
+        <button mat-icon-button routerLink="home" class="col">Home</button>
       </div>
-
-      <div *ngIf="!autenticacionService.isAuthenticated()">
-
-        <span type="button" mat-button class="material-icons-outlined mt-2" routerLink="/login">
-          login
-        </span>
-        <button mat-icon-button >
-          <mat-icon routerLink="/login">login</mat-icon>
-        </button>
-   
+      <div class="col">
+        <button mat-icon-button routerLink="clientes/page/0">Clientes</button>
       </div>
+    </div>
 
+    <div *ngIf="autenticacionService.isAuthenticated()" class="row">
 
-      <div *ngIf="autenticacionService.isAuthenticated()">
-        <button mat-icon-button>
-          <mat-icon>task_alt</mat-icon>
-        </button>
-        <span routerLink="/login">ZZTeam</span>
-        
-        <button mat-icon-button routerLink="home">
-          Home
-        </button>
+      <span class="col mt-1">{{autenticacionService.usuario.username}}</span>
 
-      </div>
-
-      <div *ngIf="autenticacionService.isAuthenticated()">
-        <button mat-icon-button (click)="logOut()">
-          <mat-icon>logout</mat-icon>
-          Cerrar sesion
-        </button>
-
-  
-      </div>
-
-
-    </mat-toolbar-row>
-
+      <button mat-icon-button (click)="logOut()"  class="col">
+        <mat-icon>logout</mat-icon>
+        Cerrar sesion
+      </button>
+    </div>
+  </mat-toolbar-row>
 </mat-toolbar>

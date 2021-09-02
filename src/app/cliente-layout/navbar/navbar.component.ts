@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
     public autenticacionService: AutenticacionService
 
   ) { }
-
+ 
   ngOnInit(): void {
   }
 

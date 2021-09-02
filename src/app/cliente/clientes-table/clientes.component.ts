@@ -82,9 +82,7 @@ export class ClientesComponent implements OnInit {
             }
           )
       }
-    })
-    
-
+    });
   }
 
   showAction(){

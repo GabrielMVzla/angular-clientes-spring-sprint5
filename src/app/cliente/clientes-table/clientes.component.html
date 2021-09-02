@@ -1,6 +1,6 @@
-<div class="row my-3">
-  <span class="col-2" style="margin-top: 1%"> <h2>Agregar Cliente</h2></span>
-  <button mat-mini-fab color="primary" (click)="openDialog(1, 0)" class="mt-2">
+<div class="row my-3" >
+  <span class="col-2" style="margin-top: 1%"> <h2>Clientes</h2></span>
+  <button mat-mini-fab color="primary" (click)="openDialog(1, 0)" class="mt-2" *ngIf="autenticacionService.hasRole('ROLE_ADMIN')">
     <mat-icon>plus_one</mat-icon>
   </button>
 </div>

@@ -23,11 +23,11 @@ export class AutenticacionService
       return this._usuario;
     }
   
-    // else    if(this._usuario.username.length > 0)
-    // {
-    //   // console.log("aquí andamos antes");  
-    //   return this._usuario;
-    // } 
+    else    if(this._usuario.username.length > 0)
+    {
+      // console.log("aquí andamos antes");  
+      return this._usuario;
+    } 
     return new Usuario();
   }
 
