@@ -43,6 +43,7 @@ export class ClientesComponent implements OnInit {
       this.clientesService.getClientesPaginable(page).subscribe(
         response => {
           this.clientes = response.content as Cliente[];
+          // this.clientes.sort();
           this.paginador = response;
         }
       )
@@ -55,6 +56,12 @@ export class ClientesComponent implements OnInit {
     dialogRef.componentInstance.id = id;
     dialogRef.afterClosed().subscribe( response => {
       this.clientesPaginables();
+      swal.fire(
+        'Nuevo Cliente!',
+        `Cliente agregado con éxito.`,
+        'success'
+      );
+   
     } )
   }
 
