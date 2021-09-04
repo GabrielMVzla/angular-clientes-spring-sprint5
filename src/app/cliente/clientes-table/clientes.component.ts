@@ -51,16 +51,21 @@ export class ClientesComponent implements OnInit {
   }
 
   openDialog(dec: number, id: number){
+    let cliente: string = "Nuevo cliente!";
     const dialogRef = this.dialog.open(FormClienteComponent);
     dialogRef.componentInstance.dec = dec;
     dialogRef.componentInstance.id = id;
+
+    // if(id == 2)
+    //   cliente = "Nuevo Actualizado!";
+
     dialogRef.afterClosed().subscribe( response => {
       this.clientesPaginables();
-      swal.fire(
-        'Nuevo Cliente!',
-        `Cliente agregado con éxito.`,
-        'success'
-      );
+      // swal.fire(
+      //   cliente,
+      //   `Cliente agregado con éxito.`,
+      //   'success'
+      // );
    
     } )
   }

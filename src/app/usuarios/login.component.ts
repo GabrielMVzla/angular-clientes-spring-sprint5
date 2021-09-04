@@ -27,13 +27,13 @@ export class LoginComponent implements OnInit {
 
   login(): void
   {
-    console.log(this.usuario);
     if(this.usuario.username == null || this.usuario.password == null)
     {
       swal.fire('Error Login', 'Username o Password vacías!', 'error');
       return;
     }
-      this.autenticacionService.login(this.usuario).subscribe(response => {
+      this.autenticacionService.login(this.usuario).subscribe(response =>
+         {
           this.autenticacionService.guardarUsuario(response.access_token);
           this.autenticacionService.guardarToken(response.access_token);
     

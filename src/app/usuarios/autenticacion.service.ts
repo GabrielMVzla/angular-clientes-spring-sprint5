@@ -54,14 +54,12 @@ export class AutenticacionService
     params.set('username', usuario.username);
     params.set('password', usuario.password);
 
-    // console.log(params.toString());
     return this.http.post<any>(urlEndpoint, params.toString(), {headers: httpHeaders});
   }
   obtenerDatosToken(accessToken: string): any
   {
     if(accessToken && accessToken.length > 0)
     {
-      // console.log("guatefac \n"+atob(accessToken.split(".")[1]))
       return JSON.parse(atob(accessToken.split(".")[1]));
     }
     return null;
@@ -77,8 +75,6 @@ export class AutenticacionService
     this._usuario.email = payload.email;
     this._usuario.username = payload.user_name;
     this._usuario.roles = payload.authorities;
-
-    console.log("seg guarda en usuario");
 
     sessionStorage.setItem('usuario', JSON.stringify(this._usuario));// de JavaScript, parse convierte String a obj JSON y el stringify hace lo contrario
   }
